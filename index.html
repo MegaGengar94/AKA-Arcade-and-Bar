@@ -1,23 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AKA Arcade and Bar - Where Fun is Unlimited</title>
+    <link rel="stylesheet" href="Styles/style.css">
+    <link href="https://db.onlinewebfonts.com/c/b12cce617218fe8bfa367def9a61af72?family=Aloja+Extended"
+        rel="stylesheet">
+
 </head>
 
 <body>
-    <header>
-        <h1>Welcome to AKA Arcade and Bar</h1>
-        <p>Where fun is unlimited!</p>
-    </header>
-    <nav>
-        <ul style="list-style-type: none; display: flex; gap: 2rem;">
-            <li><a href="#events">Events</a></li>
-            <li><a href="#food&drinks">Food & Drinks</a></li>
-            <li><a href="#schedule">Schedule</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="https://discord.gg/AJwfcTPz">Discord</a></li>
-        </ul>
+
+    <nav class="grid-overlap">
+        <div class="dropdown">
+            <!-- THIS IS THE VISIBLE BUTTON -->
+            <div class="dropdown-trigger" onclick="this.parentElement.classList.toggle('open'); playClickSound();">
+                <audio id="clickSound" src="Audio/super-mario-coin-sound.mp3" preload="auto"></audio>
+                <img src="images/AKA Block.gif" alt="Menu Button" height="64">
+                <script>
+                    // Reuse the same audio element so it can be clicked many times quickly
+                    const clickSound = document.getElementById('clickSound');
+
+                    function playClickSound() {
+                        clickSound.currentTime = 0;  // rewind to start (allows rapid clicks)
+                        clickSound.play();
+                    }
+
+                    // Optional: also play the sound when pressing Enter/Space while focused
+                    document.querySelector('.dropdown-trigger').addEventListener('keydown', function (e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            this.click();  // triggers the onclick above
+                        }
+                    });
+                </script>
+            </div>
+
+            <!-- THIS IS THE HIDDEN MENU -->
+            <div class="dropdown-menu">
+                <a href="events.html" class="events"> <img src="images/AKA Events.png" alt="Events" height="64"></a>
+                <a href="food&drink.html" class="food"> <img src="images/AKA Food & Drink.png" alt="Food & Drink"
+                        height="64"></a>
+                <a href="about.html" class="about"> <img src="images/About Us.png" alt="About us" height="64"></a>
+                <a href="https://discord.gg/AJwfcTPz" class="discord">
+                    <img src="images/AKA Discord.png" alt="Discord" height="64"></a>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <img src="images/Arcade.png" alt="Arcade Border" class="arcade">
+
+        <div class="slideshow">
+
+            <div class="slides">
+                <div class="slide">
+                    <img src="images/5626 Red Bluff Rd Pasadena Tx 77504.png" alt="Arcade 1">
+                </div>
+
+                <div class="slide">
+                    <img src="images/Merch.png" alt="Arcade 2">
+
+                </div>
+
+                <div class="slide">
+                    <img src="images/Tekken Tournament.png" alt="Arcade 2">
+
+                </div>
+
+                <div class="slide">
+                    <img src="images/Every Sunday in December we will be showing.png" alt="Arcade 2">
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </nav>
+    <h1 style="text-align: center;">Location</h1>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3466.9856810649067!2d-95.13507782446084!3d29.662189875118283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86409f8db41f0035%3A0xfeb61e498126c01e!2sA.K.A%20Arcade%20%26%20Bar!5e0!3m2!1sen!2sus!4v1765300871440!5m2!1sen!2sus"
+        width="900" height="675" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
 </body>
+
 </html>
